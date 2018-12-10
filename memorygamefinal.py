@@ -1,33 +1,12 @@
-# solution:
-#   @ßĐ€
-#   §Đ$Ł
-#   &@ß§
-#   €$&Ł
 
 import time
 
-emptycard = " "
-card1 = "@"
-card2 = "ß"
-card3 = "Đ"
-card4 = "€"
-card5 = "§"
-card6 = "$"
-card7 = "Ł"
-card8 = "&"
-card11 = "@"
-card22 = "ß"
-card33 = "Đ"
-card44 = "€"
-card55 = "§"
-card66 = "$"
-card77 = "Ł"
-card88 = "&"
+cards = (" ","@","ß","Đ","€","§","$","Ł","&")
 
-board_coor = {'A1': emptycard, 'A2': emptycard, 'A3': emptycard, 'A4': emptycard,
-              'B1': emptycard, 'B2': emptycard, 'B3': emptycard, 'B4': emptycard,
-              'C1': emptycard, 'C2': emptycard, 'C3': emptycard, 'C4': emptycard,
-              'D1': emptycard, 'D2': emptycard, 'D3': emptycard, 'D4': emptycard}
+board_coor = {'A1': cards[0], 'A2': cards[0], 'A3': cards[0], 'A4': cards[0],
+              'B1': cards[0], 'B2': cards[0], 'B3': cards[0], 'B4': cards[0],
+              'C1': cards[0], 'C2': cards[0], 'C3': cards[0], 'C4': cards[0],
+              'D1': cards[0], 'D2': cards[0], 'D3': cards[0], 'D4': cards[0]}
 
 
 
@@ -61,37 +40,37 @@ def card_turn():
 
 
     if mark1 == 'A1':
-        board_coor['A1'] = card1
+        board_coor['A1'] = cards[1]
     elif mark1 == 'A2':
-        board_coor['A2'] = card2
+        board_coor['A2'] = cards[1]
     elif mark1 == 'A3':
-        board_coor['A3'] = card3
+        board_coor['A3'] = cards[1]
     elif mark1 == 'A4':
-        board_coor['A4'] = card4
+        board_coor['A4'] = cards[1]
     elif mark1 == 'B1':
-        board_coor['B1'] = card5
+        board_coor['B1'] = cards[1]
     elif mark1 == 'B2':
-        board_coor['B2'] = card6
+        board_coor['B2'] = cards[1]
     elif mark1 == 'B3':
-        board_coor['B3'] = card7
+        board_coor['B3'] = cards[1]
     elif mark1 == 'B4':
-        board_coor['B4'] = card8
+        board_coor['B4'] = cards[1]
     elif mark1 == 'C1':
-        board_coor['C1'] = card11
+        board_coor['C1'] = cards[1]
     elif mark1 == 'C2':
-        board_coor['C2'] = card22
+        board_coor['C2'] = cards[1]
     elif mark1 == 'C3':
-        board_coor['C3'] = card33
+        board_coor['C3'] = cards[1]
     elif mark1 == 'C4':
-        board_coor['C4'] = card44
+        board_coor['C4'] = cards[1]
     elif mark1 == 'D1':
-        board_coor['D1'] = card55
+        board_coor['D1'] = cards[1]
     elif mark1 == 'D2':
-        board_coor['D2'] = card66
+        board_coor['D2'] = cards[1]
     elif mark1 == 'D3':
-        board_coor['D3'] = card77
+        board_coor['D3'] = cards[1]
     elif mark1 == 'D4':
-        board_coor['D4'] = card88
+        board_coor['D4'] = cards[1]
     
 
     mark2 = input("Type the second card's coordinate to turn it up: ").upper()
@@ -99,37 +78,37 @@ def card_turn():
         mark2 = input("Type the second card's coordinate to turn it up: ").upper()
 
     if mark2 == 'A1':
-        board_coor['A1'] = card1
+        board_coor['A1'] = cards[1]
     elif mark2 == 'A2':
-        board_coor['A2'] = card2
+        board_coor['A2'] = cards[1]
     elif mark2 == 'A3':
-        board_coor['A3'] = card3
+        board_coor['A3'] = cards[1]
     elif mark2 == 'A4':
-        board_coor['A4'] = card4
+        board_coor['A4'] = cards[1]
     elif mark2 == 'B1':
-        board_coor['B1'] = card5
+        board_coor['B1'] = cards[1]
     elif mark2 == 'B2':
-        board_coor['B2'] = card6
+        board_coor['B2'] = cards[1]
     elif mark2 == 'B3':
-        board_coor['B3'] = card7
+        board_coor['B3'] = cards[1]
     elif mark2 == 'B4':
-        board_coor['B4'] = card8
+        board_coor['B4'] = cards[1]
     elif mark2 == 'C1':
-        board_coor['C1'] = card11
+        board_coor['C1'] = cards[1]
     elif mark2 == 'C2':
-        board_coor['C2'] = card22
+        board_coor['C2'] = cards[1]
     elif mark2 == 'C3':
-        board_coor['C3'] = card33
+        board_coor['C3'] = cards[1]
     elif mark2 == 'C4':
-        board_coor['C4'] = card44
+        board_coor['C4'] = cards[1]
     elif mark2 == 'D1':
-        board_coor['D1'] = card55
+        board_coor['D1'] = cards[1]
     elif mark2 == 'D2':
-        board_coor['D2'] = card66
+        board_coor['D2'] = cards[1]
     elif mark2 == 'D3':
-        board_coor['D3'] = card77
+        board_coor['D3'] = cards[1]
     elif mark2 == 'D4':
-        board_coor['D4'] = card88
+        board_coor['D4'] = cards[1]
     
     marks = [mark1, mark2]
     return marks
@@ -152,22 +131,22 @@ def gameend():
         print("You win! Cheers!")
         continuegame = input("Would you like to continue? If yes, type 'y' or 'no' to exit the game: ")
         if continuegame == 'y' or continuegame == 'Y':
-            board_coor['A1'] = emptycard
-            board_coor['A2'] = emptycard
-            board_coor['A3'] = emptycard
-            board_coor['A4'] = emptycard
-            board_coor['B1'] = emptycard
-            board_coor['B2'] = emptycard
-            board_coor['B3'] = emptycard
-            board_coor['B4'] = emptycard
-            board_coor['C1'] = emptycard
-            board_coor['C2'] = emptycard
-            board_coor['C3'] = emptycard
-            board_coor['C4'] = emptycard
-            board_coor['D1'] = emptycard
-            board_coor['D2'] = emptycard
-            board_coor['D3'] = emptycard
-            board_coor['D4'] = emptycard
+            board_coor['A1'] = cards[1]
+            board_coor['A2'] = cards[1]
+            board_coor['A3'] = cards[1]
+            board_coor['A4'] = cards[1]
+            board_coor['B1'] = cards[1]
+            board_coor['B2'] = cards[1]
+            board_coor['B3'] = cards[1]
+            board_coor['B4'] = cards[1]
+            board_coor['C1'] = cards[1]
+            board_coor['C2'] = cards[1]
+            board_coor['C3'] = cards[1]
+            board_coor['C4'] = cards[1]
+            board_coor['D1'] = cards[1]
+            board_coor['D2'] = cards[1]
+            board_coor['D3'] = cards[1]
+            board_coor['D4'] = cards[1]
         if continuegame == 'n' or continuegame == 'N':
             print("See you!")
 
