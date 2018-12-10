@@ -1,8 +1,10 @@
-#solution:
+# solution:
 #   @ßĐ€
 #   §Đ$Ł
 #   &@ß§
 #   €$&Ł
+
+import time
 
 emptycard = " "
 card1 = "@"
@@ -13,19 +15,19 @@ card5 = "§"
 card6 = "$"
 card7 = "Ł"
 card8 = "&"
-card11 ="@"
-card22 ="ß"
-card33 ="Đ"
-card44 ="€"
-card55 ="§"
-card66 ="$"
-card77 ="Ł"
-card88 ="&"
+card11 = "@"
+card22 = "ß"
+card33 = "Đ"
+card44 = "€"
+card55 = "§"
+card66 = "$"
+card77 = "Ł"
+card88 = "&"
 
-board_coor = {'A1':emptycard, 'A2':emptycard, 'A3':emptycard,'A4':emptycard,
-              'B1':emptycard, 'B2':emptycard, 'B3':emptycard,'B4':emptycard,
-              'C1':emptycard, 'C2':emptycard, 'C3':emptycard,'C4':emptycard,
-              'D1':emptycard, 'D2':emptycard, 'D3':emptycard,'D4':emptycard}
+board_coor = {'A1': emptycard, 'A2': emptycard, 'A3': emptycard, 'A4': emptycard,
+              'B1': emptycard, 'B2': emptycard, 'B3': emptycard, 'B4': emptycard,
+              'C1': emptycard, 'C2': emptycard, 'C3': emptycard, 'C4': emptycard,
+              'D1': emptycard, 'D2': emptycard, 'D3': emptycard, 'D4': emptycard}
 
 
 
@@ -49,7 +51,7 @@ def print_board():
     print(' D | ' + board_coor['D1'] + ' | ' + board_coor['D2']+ ' | ' + board_coor['D3']+ ' | ' + board_coor['D4']+ ' | ')
     print('   |   |   |   |   |')
     print('   -----------------')
-    print ("")
+    print("")
 
 
 def card_turn():
@@ -147,7 +149,7 @@ def compare(marks):
 
 def gameend():
     if str(" ") not in board_coor.values():
-        print ("You win! Cheers!")
+        print("You win! Cheers!")
         continuegame = input("Would you like to continue? If yes, type 'y' or 'no' to exit the game: ")
         if continuegame == 'y' or continuegame == 'Y':
             board_coor['A1'] = emptycard
@@ -169,12 +171,20 @@ def gameend():
         if continuegame == 'n' or continuegame == 'N':
             print("See you!")
 
-
+def score():
+    elapsed_time = time.time() - start_time
+    time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
+    if elapsed_time <= 100:
+        print("You have great memory")
+    elif elapsed_time >= 101:
+        print("Improve your memory! Play again!")
 
    
 while True:
     print_board()
+    start_time = time.time()
     marks = card_turn()
     print_board()
     compare(marks)
     gameend()
+    score()
