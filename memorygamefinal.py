@@ -55,7 +55,6 @@ def print_board():
 def card_turn():
     mark1 = input("Type the card's coordinate to turn it: ").upper()
     while mark1 not in board_coor:
-        ()
         mark1 = input("Type the card's coordinate to turn it: ").upper()
 
 
