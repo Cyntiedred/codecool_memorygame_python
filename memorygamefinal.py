@@ -11,6 +11,29 @@ board_coor = {'A1': cards[0], 'A2': cards[0], 'A3': cards[0], 'A4': cards[0],
               'D1': cards[0], 'D2': cards[0], 'D3': cards[0], 'D4': cards[0]}
 
 
+def welcome():
+    print("""
+            ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗██╗
+            ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝██║
+            ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  ██║
+            ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  ╚═╝
+            ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗██╗
+             ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═╝
+                             to Python Tamers' Memory Game!
+            """)
+    time.sleep(1)
+    os.system('clear')
+    print("""
+
+            The Rules: You have to find all the pairs of cards!
+            Each turn you have to pick 2 cards.
+            If they're matching - you can countine the searcing for pairs.
+            If NOT, you sould memorize the sybols before they turn back!
+            """)
+    time.sleep(1)
+    os.system('clear')
+
+
 def print_board():
     print("")
     print('     1   2   3   4  ')
@@ -116,20 +139,23 @@ def card_turn():
 def compare(marks):
     if marks[0] == marks[1]:
         print("You cannot turn same cards - try again!")
-        board_coor[marks[0]] = emptycard
+        board_coor[marks[0]] = cards[0]
     elif marks[0] != marks[1]:
         if board_coor[marks[0]] == board_coor[marks[1]]:
             print("Congrats - it's a match!")
         else:
+            board_coor[marks[0]] = cards[0]
+            board_coor[marks[1]] = cards[0]
             print("No match - try again!")
-            board_coor[marks[0]] = emptycard
-            board_coor[marks[1]] = emptycard
+            time.sleep(3)
             os.system('clear')
 
 
 def gameend():
     if str(" ") not in board_coor.values():
-        continuegame = input("Would you like to continue? If yes, type 'y' or 'n' to exit the game: ")
+        os.system('clear')
+        timer()
+        continuegame = input("Would you like to play again? If yes, type 'y' or 'n' to exit the game: ")
         if continuegame == 'y' or continuegame == 'Y':
             board_coor['A1'] = cards[0]
             board_coor['A2'] = cards[0]
@@ -147,30 +173,33 @@ def gameend():
             board_coor['D2'] = cards[0]
             board_coor['D3'] = cards[0]
             board_coor['D4'] = cards[0]
-            os.system('clear')
-            timer()
         if continuegame == 'n' or continuegame == 'N':
             os.system('clear')
-            print("See you!")
+            print("""
+                    Thanks for playing,
+                       see you later!
+                    """)
             sys.exit()
 
 
 def timer():
     end = time.time()
+    elapsed_time = (end-start)
     hours, rem = divmod(end-start, 3600)
     minutes, seconds = divmod(rem, 60)
-    print("You did it! Your time is: ")
-    print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
-    #if elapsed_time <= 100:
-    #    print("You did it! Yout time is: ")
-    #    print(elapsed_time)
-    #    print("You have a great memory!")
-    #elif elapsed_time >= 101:
-    #    print("Improve your memory! Play again!")
+    if elapsed_time <= 60:
+        print("""
+                You did it! Your time is:
+
+                      {:0>2}:{:0>2}:{:05.2f}""".format(int(hours), int(minutes), seconds))
+        print("""
+                You have a great memory!
+                """)
+    elif elapsed_time >= 61:
+        print("Improve your memory, play again!")
 
 
-#def output_clearing
-   
+welcome()
 while True:
     start = time.time()
     print_board()
